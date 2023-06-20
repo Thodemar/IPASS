@@ -37,107 +37,24 @@ void membit_low(hwlib::target::pin_out & DATA, hwlib::target::pin_out & WR){
 
 int main( void ){
 
-    auto CS = hwlib::target::pin_out(hwlib::target::pins::d11);
-//    write_pin(CS,0);
-//    write_pin(CS,1);
-//    write_pin(CS,0);
-//    write_pin(CS,1);
+    auto CS1 = hwlib::target::pin_out(hwlib::target::pins::d5);
+    auto CS2 = hwlib::target::pin_out(hwlib::target::pins::d11);
+    auto CS3 = hwlib::target::pin_out(hwlib::target::pins::d10);
     auto DATA = hwlib::target::pin_out(hwlib::target::pins::d13);
     auto WR = hwlib::target::pin_out(hwlib::target::pins::d12);
 
 
-    auto bord1 = ht1632c(DATA,WR, CS);
-    bord1.set_xy(7,1,true);
-    bord1.print();
+    auto bord1 = ht1632c(DATA,WR, CS1,CS2);
+    for (int j = 0; j < 28; j++) {
+        for (int i = 0; i < 32; i++) {
+            bord1.set_xy(i, j, true);
+            bord1.flush();
+//            hwlib::wait_ms(50);
+        }
+    }
+//    bord1.set_xy(7,2,true);
+//    bord1.flush();
 
-
-
-
-//    auto test = hwlib::target::pin_out(hwlib::target::pins::d7);
-//
-//    write_pin(test,1);
-//
-//    write_pin(test,0);
-
-//    write_pin(WR,1);
-////    hwlib::wait_ms(10);
-//
-//    write_pin(DATA,1);
-//    hwlib::wait_ms(2);
-//
-//    write_pin(CS,0);
-////    hwlib::wait_ms(10);
-//
-//
-//    membit_high(DATA,WR);
-//    membit_low(DATA,WR);
-//    membit_high(DATA,WR);
-//
-//    membit_low(DATA,WR);
-//    membit_high(DATA,WR);
-//    membit_low(DATA,WR);
-//    membit_low(DATA,WR);
-//    membit_low(DATA,WR);
-//    membit_high(DATA,WR);
-//    membit_high(DATA,WR);
-//
-//    membit_low(DATA,WR);
-//    membit_low(DATA,WR);
-//    membit_low(DATA,WR);
-//    membit_low(DATA,WR);
-//
-//
-//    membit_high(DATA,WR);
-//    membit_high(DATA,WR);
-//    membit_high(DATA,WR);
-//    membit_high(DATA,WR);
-//
-//    membit_high(DATA,WR);
-//    membit_high(DATA,WR);
-//    membit_high(DATA,WR);
-//    membit_high(DATA,WR);
-//
-//    membit_high(DATA,WR);
-//    membit_high(DATA,WR);
-//    membit_high(DATA,WR);
-//    membit_high(DATA,WR);
-//
-//    membit_high(DATA,WR);
-//    membit_high(DATA,WR);
-//    membit_high(DATA,WR);
-//    membit_high(DATA,WR);
-//
-//    membit_high(DATA,WR);
-//    membit_low(DATA,WR);
-//    membit_high(DATA,WR);
-//    membit_high(DATA,WR);
-//
-//    write_pin(CS,1);
-
-//    hwlib::wait_ms(20);
-//
-//    write_pin(WR,1);
-//
-//    write_pin(DATA,1);
-//
-//    write_pin(CS,0);
-//
-//    membit_high(DATA,WR);
-//    membit_low(DATA,WR);
-//    membit_low(DATA,WR);
-//
-//    membit_low(DATA,WR);
-//    membit_low(DATA,WR);
-//    membit_low(DATA,WR);
-//    membit_low(DATA,WR);
-//    membit_low(DATA,WR);
-//    membit_low(DATA,WR);
-//    membit_high(DATA,WR);
-//    membit_high(DATA,WR);
-//    membit_high(DATA,WR);
-//
-//    write_pin(CS,1);
-//
 
 
 

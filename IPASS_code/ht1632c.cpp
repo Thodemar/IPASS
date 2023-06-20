@@ -27,7 +27,13 @@ ht1632c::ht1632c(hwlib::pin_out & DATAi, hwlib::pin_out & WRi, hwlib::pin_out & 
 {
     write_pin(CS1,1);
     write_pin(WR,1);
+
     write_pin(DATA,1);
+
+    // For some reason this needs to be here otherwise it doesn't work when you run it the first time
+    hwlib::wait_ms(1);
+    write_pin(CS1,0);
+    write_pin(CS1,1);
 }
 
 
@@ -43,6 +49,15 @@ ht1632c::ht1632c(hwlib::pin_out & DATAi, hwlib::pin_out & WRi, hwlib::pin_out & 
 
     write_pin(WR,1);
     write_pin(DATA,1);
+
+    // For some reason this needs to be here otherwise it doesn't work when you run it the first time
+    hwlib::wait_ms(1);
+    write_pin(CS1,0);
+    write_pin(CS1,1);
+    write_pin(CS2,0);
+    write_pin(CS2,1);
+
+
 }
 
 ht1632c::ht1632c(hwlib::pin_out & DATAi, hwlib::pin_out & WRi, hwlib::pin_out & CS1, hwlib::pin_out & CS2,
@@ -59,6 +74,16 @@ ht1632c::ht1632c(hwlib::pin_out & DATAi, hwlib::pin_out & WRi, hwlib::pin_out & 
 
     write_pin(WR,1);
     write_pin(DATA,1);
+
+    // For some reason this needs to be here otherwise it doesn't work when you run it the first time
+    hwlib::wait_ms(1);
+    write_pin(CS1,0);
+    write_pin(CS1,1);
+    write_pin(CS2,0);
+    write_pin(CS2,1);
+    write_pin(CS3,0);
+    write_pin(CS3,1);
+
 }
 
 ht1632c::ht1632c(hwlib::pin_out & DATAi, hwlib::pin_out & WRi, hwlib::pin_out & CS1, hwlib::pin_out & CS2,
@@ -76,13 +101,22 @@ ht1632c::ht1632c(hwlib::pin_out & DATAi, hwlib::pin_out & WRi, hwlib::pin_out & 
 
     write_pin(WR,1);
     write_pin(DATA,1);
+
+    // For some reason this needs to be here otherwise it doesn't work when you run it the first time
+    hwlib::wait_ms(1);
+    write_pin(CS1,0);
+    write_pin(CS1,1);
+    write_pin(CS2,0);
+    write_pin(CS2,1);
+    write_pin(CS3,0);
+    write_pin(CS3,1);
+    write_pin(CS4,0);
+    write_pin(CS4,1);
 }
 
 
-void ht1632c::print() {
+void ht1632c::flush() {
     write_pin(CS1,0);
-
-//    matrix[0][7] = 1;
 
     write_membit(1);
     write_membit(0);
@@ -101,20 +135,47 @@ void ht1632c::print() {
             write_membit(matrix[j][i]);
         }
     }
-//    write_membit(1);
-//    write_membit(1);
-//    write_membit(1);
-//    write_membit(1);
-//
-//    write_membit(1);
-//    write_membit(0);
-//    write_membit(0);
-//    write_membit(1);
-//
-//    write_membit(1);
-//    write_membit(0);
-//    write_membit(0);
-//    write_membit(1);
+
+    write_pin(CS1,1);
+
+    if (amountMatrixen > 1){
+        for( int chip = 2; chip <= amountMatrixen; chip++){
+            if (chip == 2){
+                write_pin(CS2,0);
+            } else if (chip == 3){
+                write_pin(CS3,0);
+            } else {
+                write_pin(CS4,0);
+            }
+
+            write_membit(1);
+            write_membit(0);
+            write_membit(1);
+
+            write_membit(0);
+            write_membit(0);
+            write_membit(0);
+            write_membit(0);
+            write_membit(0);
+            write_membit(0);
+            write_membit(0);
+
+            for (int i = 0; i < 32; i++) {
+                for (int j = 8*(chip-1); j < 8*chip; j++) {
+                    write_membit(matrix[j][i]);
+                }
+            }
+
+            if (chip == 2){
+                write_pin(CS2,1);
+            } else if (chip == 3){
+                write_pin(CS3,1);
+            } else {
+                write_pin(CS4,1);
+            }
+
+        }
+    }
 
 }
 
