@@ -14,30 +14,12 @@
 void write_pin(hwlib::target::pin_out & pin , bool state){
     pin.write(state);
     pin.flush();
-}
 
-void membit_high(hwlib::target::pin_out & DATA, hwlib::target::pin_out & WR){
-//    hwlib::wait_ms(10);
-    write_pin(WR,0);
-//    hwlib::wait_ms(10);
-    write_pin(DATA,1);
-//    hwlib::wait_ms(10);
-    write_pin(WR,1);
-}
-
-void membit_low(hwlib::target::pin_out & DATA, hwlib::target::pin_out & WR){
-//    hwlib::wait_ms(10);
-    write_pin(WR,0);
-//    hwlib::wait_ms(10);
-    write_pin(DATA,0);
-//    hwlib::wait_ms(10);
-    write_pin(WR,1);
-}
-
+    }
 
 int main( void ){
 
-    auto CS1 = hwlib::target::pin_out(hwlib::target::pins::d5);
+    auto CS1 = hwlib::target::pin_out(hwlib::target::pins::d2);
     auto CS2 = hwlib::target::pin_out(hwlib::target::pins::d11);
     auto CS3 = hwlib::target::pin_out(hwlib::target::pins::d10);
     auto DATA = hwlib::target::pin_out(hwlib::target::pins::d13);
@@ -45,11 +27,12 @@ int main( void ){
 
 
     auto bord1 = ht1632c(DATA,WR, CS1,CS2);
-    for (int j = 0; j < 28; j++) {
+    for (int j = 0; j < 16; j++) {
         for (int i = 0; i < 32; i++) {
             bord1.set_xy(i, j, true);
             bord1.flush();
-//            hwlib::wait_ms(50);
+            hwlib::wait_ms(50);
+            bord1.empty_matrix();
         }
     }
 //    bord1.set_xy(7,2,true);

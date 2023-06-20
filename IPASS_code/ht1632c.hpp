@@ -3,7 +3,7 @@
 //
 
 #include "hwlib.hpp"
-#include <vector>
+//#include <vector>
 
 
 #ifndef IPASS_HT1632C_HPP
@@ -76,7 +76,38 @@ public:
     /// completely reflushes the screens with new information from the matrix array.
     void flush();
 
+    /// \brief
+    /// Sets everything in array matrix to 0
+    /// \details
+    /// sets every value in the array matrix to 0.
+    void empty_matrix();
+
+
+    /// \brief
+    /// Sets everything in array matrix to 1
+    /// \details
+    /// sets every value in the array matrix to 1.
+    void fill_matrix();
+
+    /// \brief
+    /// Empties the screen
+    /// \details
+    /// Clears the screen of any lit up lights. DO NOTE: This does not clear the matrix so with the next flush the old values will be projected.
+    void empty_screen();
+
+    /// \brief
+    /// Sets a specific XY coördinate
+    /// \details
+    /// Sets the status based on input state in of an specific XY coordinate in the matrix array. DO NOTE: lowest XY is 0,0.
     void set_xy(int x, int y, bool state);
+
+
+    /// \brief
+    /// Getter for amountMatrixen
+    /// \details
+    /// Gives the value that is stored in de variable amountMatrixen
+    int get_amountMatrixen();
+
 
 };
 
