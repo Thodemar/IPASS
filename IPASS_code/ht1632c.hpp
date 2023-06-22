@@ -113,9 +113,9 @@ public:
     int get_amountMatrixen();
 
     /// \brief
-    /// Sets the matrixbord(s) up
+    /// Sets the matrixboard(s) up
     /// \details
-    /// Sets up the matrixbord(s) voor use as a LED 8 X 32 matrix. DO NOTE: this needs to run for the matrix to show anything
+    /// Sets up the matrixboard(s) voor use as a LED 8 X 32 matrix. DO NOTE: this needs to run for the matrix to show anything
     void begin();
 
 };
