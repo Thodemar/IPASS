@@ -1,1 +1,1 @@
-This repository contains the full code of the examples used in the course V1OOPC at the Hogeschool Utrecht, HBO-ICT.
+This repo contains all the code for the IPASS project made bij Thom Kuijper in the school year 2022-2023 for the Hogeschool Utrecht HBO-ICT branch Technische informatica.
