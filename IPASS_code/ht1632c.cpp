@@ -18,6 +18,19 @@ void ht1632c::write_membit(bool state){
     write_pin(WR,1);
 }
 
+
+void ht1632c::cs_set_multi(int chip, bool state){
+    if (chip == 1) {
+        write_pin(CS1, state);
+    } else if (chip == 2) {
+        write_pin(CS2, state);
+    } else if (chip == 3) {
+        write_pin(CS3, state);
+    } else {
+        write_pin(CS4, state);
+    }
+
+}
 ht1632c::ht1632c(hwlib::pin_out & DATAi, hwlib::pin_out & WRi, hwlib::pin_out & CS1)
     :
     DATA(DATAi), WR(WRi),
@@ -26,9 +39,9 @@ ht1632c::ht1632c(hwlib::pin_out & DATAi, hwlib::pin_out & WRi, hwlib::pin_out & 
     amountMatrixen(1)
 {
     write_pin(CS1,1);
-    write_pin(WR,1);
 
-    write_pin(DATA,1);
+    write_pin(WR,1);
+    write_pin(DATA,0);
 
     // For some reason this needs to be here otherwise it doesn't work when you run it the first time
     hwlib::wait_ms(1);
@@ -48,7 +61,7 @@ ht1632c::ht1632c(hwlib::pin_out & DATAi, hwlib::pin_out & WRi, hwlib::pin_out & 
     write_pin(CS2,1);
 
     write_pin(WR,1);
-    write_pin(DATA,1);
+    write_pin(DATA,0);
 
     // For some reason this needs to be here otherwise it doesn't work when you run it the first time
     hwlib::wait_ms(1);
@@ -73,7 +86,7 @@ ht1632c::ht1632c(hwlib::pin_out & DATAi, hwlib::pin_out & WRi, hwlib::pin_out & 
     write_pin(CS3,1);
 
     write_pin(WR,1);
-    write_pin(DATA,1);
+    write_pin(DATA,0);
 
     // For some reason this needs to be here otherwise it doesn't work when you run it the first time
     hwlib::wait_ms(1);
@@ -100,7 +113,7 @@ ht1632c::ht1632c(hwlib::pin_out & DATAi, hwlib::pin_out & WRi, hwlib::pin_out & 
     write_pin(CS4,1);
 
     write_pin(WR,1);
-    write_pin(DATA,1);
+    write_pin(DATA,0);
 
     // For some reason this needs to be here otherwise it doesn't work when you run it the first time
     hwlib::wait_ms(1);
@@ -229,4 +242,38 @@ void ht1632c::empty_screen() {
 
 int ht1632c::get_amountMatrixen() {
     return amountMatrixen;
+}
+
+void ht1632c::send_command(bool command[12] ,int chip){
+    cs_set_multi(chip,0);
+
+    for (int i = 0;i < 12;i++)
+    {
+        write_membit(command[i]);
+    }
+
+    cs_set_multi(chip,1);
+}
+
+
+void ht1632c::begin() {
+    bool SYS_EN[12] = {1,0,0,0,0,0,0,0,0,0,1,0};
+    bool LED_ON[12] = {1,0,0,0,0,0,0,0,0,1,1,0};
+    bool BLINK_OFF[12] = {1,0,0,0,0,0,0,1,0,0,0,0};
+    bool vier[12] = {1,0,0,0,0,0,1,0,1,0,0,0};
+    bool RC_MASTER_MODE[12] = {1,0,0,0,0,0,1,1,0,0,0,0};
+    bool COM_OPTION_NMOS_8COM[12] = {1,0,0,0,0,1,0,0,0,0,0,0};
+    bool PWM_16[12] = {1,0,0,1,0,1,0,1,1,1,1,0};
+
+
+    for (int chip = 1; chip <= amountMatrixen; chip++) {
+        send_command(SYS_EN,chip);
+        send_command(LED_ON,chip);
+        send_command(BLINK_OFF,chip);
+        send_command(vier,chip);
+        send_command(RC_MASTER_MODE,chip);
+        send_command(COM_OPTION_NMOS_8COM,chip);
+        send_command(PWM_16,chip);
+
+    }
 }

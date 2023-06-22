@@ -38,6 +38,10 @@ private:
 
     void write_membit(bool state);
 
+    void send_command(bool command[12],int chip);
+
+    void cs_set_multi(int chip, bool state);
+
 
 public:
     /// \brief
@@ -108,6 +112,11 @@ public:
     /// Gives the value that is stored in de variable amountMatrixen
     int get_amountMatrixen();
 
+    /// \brief
+    /// Sets the matrixbord(s) up
+    /// \details
+    /// Sets up the matrixbord(s) voor use as a LED 8 X 32 matrix. DO NOTE: this needs to run for the matrix to show anything
+    void begin();
 
 };
 
