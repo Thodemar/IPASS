@@ -1,0 +1,167 @@
+\hypertarget{classht1632c}{}\doxysection{ht1632c Class Reference}
+\label{classht1632c}\index{ht1632c@{ht1632c}}
+
+
+\mbox{\hyperlink{classht1632c}{ht1632c}} class  
+
+
+
+
+{\ttfamily \#include $<$ht1632c.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classht1632c_a496e626a70f6d91450f0f7eca47a0178}{ht1632c}} (hwlib\+::pin\+\_\+out \&DATAi, hwlib\+::pin\+\_\+out \&WRi, hwlib\+::pin\+\_\+out \&CS1)
+\begin{DoxyCompactList}\small\item\em Constructor for 1 chip. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classht1632c_a9d59ea046fbbd9961926100992d6201e}{ht1632c}} (hwlib\+::pin\+\_\+out \&DATAi, hwlib\+::pin\+\_\+out \&WRi, hwlib\+::pin\+\_\+out \&CS1, hwlib\+::pin\+\_\+out \&CS2)
+\begin{DoxyCompactList}\small\item\em Constructor for 2 chips. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classht1632c_a261ec81de6481b6d819f7dc41244ca41}{ht1632c}} (hwlib\+::pin\+\_\+out \&DATAi, hwlib\+::pin\+\_\+out \&WRi, hwlib\+::pin\+\_\+out \&CS1, hwlib\+::pin\+\_\+out \&CS2, hwlib\+::pin\+\_\+out \&CS3)
+\begin{DoxyCompactList}\small\item\em Constructor for 3 chips. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classht1632c_a853b0026d8393dc379c9f9764648c7c0}{ht1632c}} (hwlib\+::pin\+\_\+out \&DATAi, hwlib\+::pin\+\_\+out \&WRi, hwlib\+::pin\+\_\+out \&CS1, hwlib\+::pin\+\_\+out \&CS2, hwlib\+::pin\+\_\+out \&CS3, hwlib\+::pin\+\_\+out \&CS4)
+\begin{DoxyCompactList}\small\item\em Constructor for 4 chips. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classht1632c_a7b1d85fc0ef8176ac713c69a611f8ccd}{flush}} ()
+\begin{DoxyCompactList}\small\item\em flushes the matrix onto the screens \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classht1632c_a00c08844992d22af0e01b2e9ea60bc63}{empty\+\_\+matrix}} ()
+\begin{DoxyCompactList}\small\item\em Sets everything in array matrix to 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classht1632c_a64f0b9bad22e0499c6635f1f3228d3b5}{fill\+\_\+matrix}} ()
+\begin{DoxyCompactList}\small\item\em Sets everything in array matrix to 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classht1632c_ad69bc1c7a4e9ca97f2613e35acde7c7d}{empty\+\_\+screen}} ()
+\begin{DoxyCompactList}\small\item\em Empties the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classht1632c_a84ed5d977740178039294bff0a8da9d9}{set\+\_\+xy}} (int x, int y, bool state)
+\begin{DoxyCompactList}\small\item\em Sets a specific XY coördinate. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classht1632c_a538e89c52a65022332ed77e7ebcc63cb}{get\+\_\+amount\+Matrixen}} ()
+\begin{DoxyCompactList}\small\item\em Getter for amount\+Matrixen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classht1632c_a653361bf0c85ef5103f272b9fda64831}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Sets the matrixboard(s) up. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classht1632c}{ht1632c}} class 
+
+This is a class that allows you to write information to a \mbox{\hyperlink{classht1632c}{ht1632c}}. The information for each light is stored in a 32x32 array. Because the size of the array it has a max capacity for 4 chips to be send to.
+
+XY cordinates start at 0,0
+
+The class allows for the changing of individuel lights or multiple at the same time 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classht1632c_a496e626a70f6d91450f0f7eca47a0178}\label{classht1632c_a496e626a70f6d91450f0f7eca47a0178}} 
+\index{ht1632c@{ht1632c}!ht1632c@{ht1632c}}
+\index{ht1632c@{ht1632c}!ht1632c@{ht1632c}}
+\doxysubsubsection{\texorpdfstring{ht1632c()}{ht1632c()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily ht1632c\+::ht1632c (\begin{DoxyParamCaption}\item[{hwlib\+::pin\+\_\+out \&}]{DATAi,  }\item[{hwlib\+::pin\+\_\+out \&}]{WRi,  }\item[{hwlib\+::pin\+\_\+out \&}]{CS1 }\end{DoxyParamCaption})}
+
+
+
+Constructor for 1 chip. 
+
+Constructor initializes the DATA, WR and CS pins and throws them high. Also sets the amount\+Matrixen on 1 and fills the matrix with zero\textquotesingle{}s. \mbox{\Hypertarget{classht1632c_a9d59ea046fbbd9961926100992d6201e}\label{classht1632c_a9d59ea046fbbd9961926100992d6201e}} 
+\index{ht1632c@{ht1632c}!ht1632c@{ht1632c}}
+\index{ht1632c@{ht1632c}!ht1632c@{ht1632c}}
+\doxysubsubsection{\texorpdfstring{ht1632c()}{ht1632c()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily ht1632c\+::ht1632c (\begin{DoxyParamCaption}\item[{hwlib\+::pin\+\_\+out \&}]{DATAi,  }\item[{hwlib\+::pin\+\_\+out \&}]{WRi,  }\item[{hwlib\+::pin\+\_\+out \&}]{CS1,  }\item[{hwlib\+::pin\+\_\+out \&}]{CS2 }\end{DoxyParamCaption})}
+
+
+
+Constructor for 2 chips. 
+
+Constructor initializes the DATA, WR and CS pins and throws them high. Also sets the amount\+Matrixen on 2 and fills the matrix with zero\textquotesingle{}s. \mbox{\Hypertarget{classht1632c_a261ec81de6481b6d819f7dc41244ca41}\label{classht1632c_a261ec81de6481b6d819f7dc41244ca41}} 
+\index{ht1632c@{ht1632c}!ht1632c@{ht1632c}}
+\index{ht1632c@{ht1632c}!ht1632c@{ht1632c}}
+\doxysubsubsection{\texorpdfstring{ht1632c()}{ht1632c()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily ht1632c\+::ht1632c (\begin{DoxyParamCaption}\item[{hwlib\+::pin\+\_\+out \&}]{DATAi,  }\item[{hwlib\+::pin\+\_\+out \&}]{WRi,  }\item[{hwlib\+::pin\+\_\+out \&}]{CS1,  }\item[{hwlib\+::pin\+\_\+out \&}]{CS2,  }\item[{hwlib\+::pin\+\_\+out \&}]{CS3 }\end{DoxyParamCaption})}
+
+
+
+Constructor for 3 chips. 
+
+Constructor initializes the DATA, WR and CS pins and throws them high. Also sets the amount\+Matrixen on 3 and fills the matrix with zero\textquotesingle{}s. \mbox{\Hypertarget{classht1632c_a853b0026d8393dc379c9f9764648c7c0}\label{classht1632c_a853b0026d8393dc379c9f9764648c7c0}} 
+\index{ht1632c@{ht1632c}!ht1632c@{ht1632c}}
+\index{ht1632c@{ht1632c}!ht1632c@{ht1632c}}
+\doxysubsubsection{\texorpdfstring{ht1632c()}{ht1632c()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily ht1632c\+::ht1632c (\begin{DoxyParamCaption}\item[{hwlib\+::pin\+\_\+out \&}]{DATAi,  }\item[{hwlib\+::pin\+\_\+out \&}]{WRi,  }\item[{hwlib\+::pin\+\_\+out \&}]{CS1,  }\item[{hwlib\+::pin\+\_\+out \&}]{CS2,  }\item[{hwlib\+::pin\+\_\+out \&}]{CS3,  }\item[{hwlib\+::pin\+\_\+out \&}]{CS4 }\end{DoxyParamCaption})}
+
+
+
+Constructor for 4 chips. 
+
+Constructor initializes the DATA, WR and CS pins and throws them high. Also sets the amount\+Matrixen on 4 and fills the matrix with zero\textquotesingle{}s. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classht1632c_a653361bf0c85ef5103f272b9fda64831}\label{classht1632c_a653361bf0c85ef5103f272b9fda64831}} 
+\index{ht1632c@{ht1632c}!begin@{begin}}
+\index{begin@{begin}!ht1632c@{ht1632c}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void ht1632c\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sets the matrixboard(s) up. 
+
+Sets up the matrixboard(s) voor use as a LED 8 X 32 matrix. DO NOTE\+: this needs to run for the matrix to show anything \mbox{\Hypertarget{classht1632c_a00c08844992d22af0e01b2e9ea60bc63}\label{classht1632c_a00c08844992d22af0e01b2e9ea60bc63}} 
+\index{ht1632c@{ht1632c}!empty\_matrix@{empty\_matrix}}
+\index{empty\_matrix@{empty\_matrix}!ht1632c@{ht1632c}}
+\doxysubsubsection{\texorpdfstring{empty\_matrix()}{empty\_matrix()}}
+{\footnotesize\ttfamily void ht1632c\+::empty\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sets everything in array matrix to 0. 
+
+sets every value in the array matrix to 0. \mbox{\Hypertarget{classht1632c_ad69bc1c7a4e9ca97f2613e35acde7c7d}\label{classht1632c_ad69bc1c7a4e9ca97f2613e35acde7c7d}} 
+\index{ht1632c@{ht1632c}!empty\_screen@{empty\_screen}}
+\index{empty\_screen@{empty\_screen}!ht1632c@{ht1632c}}
+\doxysubsubsection{\texorpdfstring{empty\_screen()}{empty\_screen()}}
+{\footnotesize\ttfamily void ht1632c\+::empty\+\_\+screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Empties the screen. 
+
+Clears the screen of any lit up lights. DO NOTE\+: This does not clear the matrix so with the next flush the old values will be projected. \mbox{\Hypertarget{classht1632c_a64f0b9bad22e0499c6635f1f3228d3b5}\label{classht1632c_a64f0b9bad22e0499c6635f1f3228d3b5}} 
+\index{ht1632c@{ht1632c}!fill\_matrix@{fill\_matrix}}
+\index{fill\_matrix@{fill\_matrix}!ht1632c@{ht1632c}}
+\doxysubsubsection{\texorpdfstring{fill\_matrix()}{fill\_matrix()}}
+{\footnotesize\ttfamily void ht1632c\+::fill\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sets everything in array matrix to 1. 
+
+sets every value in the array matrix to 1. \mbox{\Hypertarget{classht1632c_a7b1d85fc0ef8176ac713c69a611f8ccd}\label{classht1632c_a7b1d85fc0ef8176ac713c69a611f8ccd}} 
+\index{ht1632c@{ht1632c}!flush@{flush}}
+\index{flush@{flush}!ht1632c@{ht1632c}}
+\doxysubsubsection{\texorpdfstring{flush()}{flush()}}
+{\footnotesize\ttfamily void ht1632c\+::flush (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+flushes the matrix onto the screens 
+
+completely reflushes the screens with new information from the matrix array. \mbox{\Hypertarget{classht1632c_a538e89c52a65022332ed77e7ebcc63cb}\label{classht1632c_a538e89c52a65022332ed77e7ebcc63cb}} 
+\index{ht1632c@{ht1632c}!get\_amountMatrixen@{get\_amountMatrixen}}
+\index{get\_amountMatrixen@{get\_amountMatrixen}!ht1632c@{ht1632c}}
+\doxysubsubsection{\texorpdfstring{get\_amountMatrixen()}{get\_amountMatrixen()}}
+{\footnotesize\ttfamily int ht1632c\+::get\+\_\+amount\+Matrixen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for amount\+Matrixen. 
+
+Gives the value that is stored in de variable amount\+Matrixen \mbox{\Hypertarget{classht1632c_a84ed5d977740178039294bff0a8da9d9}\label{classht1632c_a84ed5d977740178039294bff0a8da9d9}} 
+\index{ht1632c@{ht1632c}!set\_xy@{set\_xy}}
+\index{set\_xy@{set\_xy}!ht1632c@{ht1632c}}
+\doxysubsubsection{\texorpdfstring{set\_xy()}{set\_xy()}}
+{\footnotesize\ttfamily void ht1632c\+::set\+\_\+xy (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{bool}]{state }\end{DoxyParamCaption})}
+
+
+
+Sets a specific XY coördinate. 
+
+Sets the status based on input state in of an specific XY coordinate in the matrix array. DO NOTE\+: lowest XY is 0,0. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ht1632c_8hpp}{ht1632c.\+hpp}}\item 
+ht1632c.\+cpp\end{DoxyCompactItemize}

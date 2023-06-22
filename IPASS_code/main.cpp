@@ -11,35 +11,35 @@
 #include "ht1632c.hpp"
 
 
-void write_pin(hwlib::target::pin_out & pin , bool state){
-    pin.write(state);
-    pin.flush();
-
-    }
-
 int main( void ){
 
     auto CS1 = hwlib::target::pin_out(hwlib::target::pins::d30);
-    auto CS2 = hwlib::target::pin_out(hwlib::target::pins::d30);
-    auto CS3 = hwlib::target::pin_out(hwlib::target::pins::d10);
+    auto CS2 = hwlib::target::pin_out(hwlib::target::pins::d26);
+//    auto CS3 = hwlib::target::pin_out(hwlib::target::pins::d10);
+//    auto CS4 = hwlib::target::pin_out(hwlib::target::pins::d10);
     auto DATA = hwlib::target::pin_out(hwlib::target::pins::d13);
     auto WR = hwlib::target::pin_out(hwlib::target::pins::d12);
 
 
-    auto bord1 = ht1632c(DATA,WR, CS1);
+    auto bord1 = ht1632c(DATA,WR, CS1, CS2);
     bord1.begin();
-    bord1.fill_matrix();
+    bord1.empty_matrix();
     bord1.flush();
-    for (int j = 0; j < 16; j++) {
-        for (int i = 0; i < 32; i++) {
-            bord1.set_xy(i, j, true);
-            bord1.flush();
-            hwlib::wait_ms(50);
-            bord1.empty_matrix();
-        }
+
+    int amount_matrixen = bord1.get_amountMatrixen();
+    auto anolog_pin1 = hwlib::target::pin_adc(hwlib::target::ad_pins::a0);
+    auto anolog_pin2 = hwlib::target::pin_adc(hwlib::target::ad_pins::a1);
+    while(true){
+        anolog_pin1.refresh();
+        int y_cord = (anolog_pin1.read() / (4095 / (amount_matrixen * 8)));
+        anolog_pin2.refresh();
+        int x_cord = (anolog_pin2.read() / (4095 / (32)));
+        bord1.set_xy(x_cord,y_cord,1);
+        bord1.flush();
+        hwlib::cout << y_cord << " " << x_cord << "\n";
+        hwlib::wait_ms(5);
+
     }
-//    bord1.set_xy(7,2,true);
-    bord1.flush();
 
 
 

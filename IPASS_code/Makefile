@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES :=
+SOURCES := ht1632c.cpp
 
 # header files in this project
-HEADERS :=
+HEADERS := ht1632c.hpp
 
 # other places to look for files for this project
 SEARCH  := 

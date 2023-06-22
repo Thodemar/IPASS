@@ -1,0 +1,70 @@
+\hypertarget{ht1632c_8hpp_source}{}\doxysection{ht1632c.\+hpp}
+\mbox{\hyperlink{ht1632c_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Thodemar on 15-\/6-\/2023.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}hwlib.hpp"{}}}
+\DoxyCodeLine{6 \textcolor{comment}{//\#include <vector>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef IPASS\_HT1632C\_HPP}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define IPASS\_HT1632C\_HPP}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 }
+\DoxyCodeLine{14 }
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{classht1632c}{ht1632c}} \{}
+\DoxyCodeLine{27 \textcolor{keyword}{private}:}
+\DoxyCodeLine{28     hwlib::pin\_out \&DATA;}
+\DoxyCodeLine{29     hwlib::pin\_out \&WR;}
+\DoxyCodeLine{30     hwlib::pin\_out \&CS1;}
+\DoxyCodeLine{31     hwlib::pin\_out \&CS2;}
+\DoxyCodeLine{32     hwlib::pin\_out \&CS3;}
+\DoxyCodeLine{33     hwlib::pin\_out \&CS4;}
+\DoxyCodeLine{34     \textcolor{keywordtype}{bool} matrix[32][32];}
+\DoxyCodeLine{35     \textcolor{keywordtype}{int} amountMatrixen;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} write\_pin(hwlib::pin\_out \& pin , \textcolor{keywordtype}{bool} state);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} write\_membit(\textcolor{keywordtype}{bool} state);}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} send\_command(\textcolor{keywordtype}{bool} command[12],\textcolor{keywordtype}{int} chip);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} cs\_set\_multi(\textcolor{keywordtype}{int} chip, \textcolor{keywordtype}{bool} state);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{keyword}{public}:}
+\DoxyCodeLine{52     \mbox{\hyperlink{classht1632c_a496e626a70f6d91450f0f7eca47a0178}{ht1632c}}(hwlib::pin\_out \& DATAi, hwlib::pin\_out \& WRi, hwlib::pin\_out \& CS1);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{59     \mbox{\hyperlink{classht1632c_a496e626a70f6d91450f0f7eca47a0178}{ht1632c}}(hwlib::pin\_out \& DATAi, hwlib::pin\_out \& WRi, hwlib::pin\_out \& CS1, hwlib::pin\_out \& CS2);}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{66     \mbox{\hyperlink{classht1632c_a496e626a70f6d91450f0f7eca47a0178}{ht1632c}}(hwlib::pin\_out \& DATAi, hwlib::pin\_out \& WRi, hwlib::pin\_out \& CS1, hwlib::pin\_out \& CS2,}
+\DoxyCodeLine{67             hwlib::pin\_out \& CS3);}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{74     \mbox{\hyperlink{classht1632c_a496e626a70f6d91450f0f7eca47a0178}{ht1632c}}(hwlib::pin\_out \& DATAi, hwlib::pin\_out \& WRi, hwlib::pin\_out \& CS1, hwlib::pin\_out \& CS2,}
+\DoxyCodeLine{75             hwlib::pin\_out \& CS3, hwlib::pin\_out \& CS4);}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{81     \textcolor{keywordtype}{void} \mbox{\hyperlink{classht1632c_a7b1d85fc0ef8176ac713c69a611f8ccd}{flush}}();}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{87     \textcolor{keywordtype}{void} \mbox{\hyperlink{classht1632c_a00c08844992d22af0e01b2e9ea60bc63}{empty\_matrix}}();}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 }
+\DoxyCodeLine{94     \textcolor{keywordtype}{void} \mbox{\hyperlink{classht1632c_a64f0b9bad22e0499c6635f1f3228d3b5}{fill\_matrix}}();}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{100     \textcolor{keywordtype}{void} \mbox{\hyperlink{classht1632c_ad69bc1c7a4e9ca97f2613e35acde7c7d}{empty\_screen}}();}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{106     \textcolor{keywordtype}{void} \mbox{\hyperlink{classht1632c_a84ed5d977740178039294bff0a8da9d9}{set\_xy}}(\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y, \textcolor{keywordtype}{bool} state);}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 }
+\DoxyCodeLine{113     \textcolor{keywordtype}{int} \mbox{\hyperlink{classht1632c_a538e89c52a65022332ed77e7ebcc63cb}{get\_amountMatrixen}}();}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{119     \textcolor{keywordtype}{void} \mbox{\hyperlink{classht1632c_a653361bf0c85ef5103f272b9fda64831}{begin}}();}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \};}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//IPASS\_HT1632C\_HPP}}
+
+\end{DoxyCode}
