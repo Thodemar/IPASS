@@ -176,6 +176,7 @@ void ht1632c::set_xy(int x, int y, bool state) {
     matrix[y][x] = state;
 }
 
+// Empty's the matrix with a for loop in a for loop
 void ht1632c::empty_matrix() {
     for (int i = 0; i < 32; i++){
         for (int j = 0; j < 32; j++){

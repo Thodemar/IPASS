@@ -21,7 +21,7 @@
 ///
 /// XY cordinates start at 0,0
 ///
-/// The class allows for the changing of individuel lights or multiple at the same time
+/// The class allows for the changing of individual lights or multiple at the same time
 
 class ht1632c {
 private:
@@ -34,12 +34,17 @@ private:
     bool matrix[32][32];
     int amountMatrixen;
 
+    // Combines the .write() and .flush() function from hwlib for a pin
     void write_pin(hwlib::pin_out & pin , bool state);
 
+    // Writes one bit on the DATA line and pulls the WR line low and high
     void write_membit(bool state);
 
+    // Sends a command to the matrix. The command it needs to send is given in the form of an 12 lenght boolean array.
     void send_command(bool command[12],int chip);
 
+
+    // Sets a different chip select based on in the chip input. Input is 1, 2, 3 or 4 and state says if it needs to by high or low.
     void cs_set_multi(int chip, bool state);
 
 
