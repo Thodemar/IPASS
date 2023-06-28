@@ -19,8 +19,8 @@ void etch_a_sketch(ht1632c & speelbord, hwlib::target::pin_adc & knop1,
         int x_cord = (knop2.read() / (4095 / (32)));
         speelbord.set_xy(x_cord,y_cord,1);
         speelbord.flush();
-        hwlib::cout << y_cord << " " << x_cord << "\n";
-        hwlib::wait_ms(5);
+//        hwlib::cout << y_cord << " " << x_cord << "\n";
+//        hwlib::wait_ms(5);
         schakelaar.refresh();
         bool schakelaarStatus = schakelaar.read();
         if (schakelaarStatus == 0){
